@@ -36,7 +36,7 @@
 
 .page__submenu-link {
     display: block;
-    height: 44px;
+    min-height: 44px;
     background-color: #E3E3E3;
     border: 2px solid #000;
     font-weight: 400;
@@ -46,4 +46,10 @@
     text-decoration: none;
     padding: 5px 13px 9px;
     box-sizing: border-box;
+    cursor: pointer;
+    transition: background-color 0.2s
+}
+
+.page__submenu-link:hover {
+    background-color: #65CDF9;
 }
