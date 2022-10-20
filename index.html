@@ -6,9 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="index.css" />
     <title>Поиск по github репозиториям</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="page">
-    Новый github проект
+    <h1 class="page__heading">Поиск репозиториев</h1>
+    <div class="page__search-container">
+      <input
+        class="page__search-input"
+        type="text"
+        name="search-input"
+        placeholder="Название"
+      />
+      <ul class="page__search-submenu">
+        <li class="page__submenu-item">
+          <a href="#" class="page__submenu-link">1</a>
+        </li>
+        <li class="page__submenu-item">
+          <a href="#" class="page__submenu-link">2</a>
+        </li>
+        <li class="page__submenu-item">
+          <a href="#" class="page__submenu-link">3</a>
+        </li>
+        <li class="page__submenu-item">
+          <a href="#" class="page__submenu-link">4</a>
+        </li>
+        <li class="page__submenu-item">
+          <a href="#" class="page__submenu-link">5</a>
+        </li>
+      </ul>
+    </div>
+    <div class="page__results"></div>
+
     <script src="index.js"></script>
   </body>
 </html>
