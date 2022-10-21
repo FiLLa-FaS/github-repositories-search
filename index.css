@@ -12,7 +12,7 @@
 
 .page__search-container {
     width: 500px;
-    margin: 30px auto 0;
+    margin: 50px auto 0;
     position: relative;
 }
 
@@ -52,4 +52,50 @@
 
 .page__submenu-link:hover {
     background-color: #65CDF9;
+}
+
+.page__results {
+    margin: 50px auto 0;
+    padding: 0;
+    width: 500px;
+    list-style: none;
+}
+
+.page__results-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background-color: #E27BEB;
+    border: 1px solid #000;
+}
+
+.page__item-text {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+}
+
+.page__item-content {
+    margin: 0;
+}
+
+.page__item-remove {
+    background-color: transparent;
+    background-image: url('./images/Group\ 1.svg');
+    border: none;
+    width: 40px;
+    height: 40px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.page__item-remove:hover {
+    opacity: 0.5;
 }
