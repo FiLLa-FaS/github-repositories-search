@@ -49,6 +49,7 @@ function addRepository(id) {
   repositoriesArray.items.forEach((repository) => {
     if (repository.id == id) {
       renderCard(repository);
+      searchInput.value = "";
     }
   });
 }
@@ -68,19 +69,13 @@ function renderCard(repository) {
   const closeButton = document.createElement("button");
   closeButton.classList.add("page__item-remove");
   const cardName = document.createElement("p");
-  cardName.classList.add(`page__item-content`, `page__item-content_type_name`);
+  cardName.classList.add(`page__item-content`);
   cardName.textContent = `Name: ${repository.name}`;
   const cardOwner = document.createElement("p");
-  cardOwner.classList.add(
-    `page__item-content`,
-    `page__item-content_type_owner`
-  );
+  cardOwner.classList.add(`page__item-content`);
   cardOwner.textContent = `Owner: ${repository.owner.login}`;
   const cardStars = document.createElement("p");
-  cardStars.classList.add(
-    `page__item-content`,
-    `page__item-content_type_stars`
-  );
+  cardStars.classList.add(`page__item-content`);
   cardStars.textContent = `Stars: ${repository.stargazers_count}`;
   textContainer.appendChild(cardName);
   textContainer.appendChild(cardOwner);
@@ -118,5 +113,5 @@ function renderSubmenuItem(item) {
 const debouncedRender = debounce(createNewSubmenu, 300);
 
 searchInput.addEventListener("input", debouncedRender);
-searchContainer.addEventListener("click", (e) => handleSubmenuClick(e));
-resultContainer.addEventListener("click", (e) => handleCardRemoving(e));
+searchContainer.addEventListener("click", handleSubmenuClick);
+resultContainer.addEventListener("click", handleCardRemoving);
