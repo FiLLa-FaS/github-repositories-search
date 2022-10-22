@@ -41,6 +41,18 @@ function handleSubmenuClick(event) {
   let a = event.target.closest("a");
   if (!a) return;
   let id = a.id;
+  const list = document.querySelectorAll(".page__results-item");
+  if (list.length > 0) {
+    const listIterable = [...list];
+    for (let item of listIterable) {
+      if (item.id === id) {
+        alert("Такой репозиторий уже есть в списке");
+        renderSubmenu();
+        searchInput.value = "";
+        return;
+      }
+    }
+  }
   addRepository(id);
   renderSubmenu();
 }
@@ -64,6 +76,7 @@ function handleCardRemoving(event) {
 function renderCard(repository) {
   const card = document.createElement("li");
   card.classList.add("page__results-item");
+  card.id = repository.id;
   const textContainer = document.createElement("div");
   textContainer.classList.add("page__item-text");
   const closeButton = document.createElement("button");
