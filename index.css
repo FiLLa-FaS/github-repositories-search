@@ -35,19 +35,33 @@
 }
 
 .page__submenu-link {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     min-height: 44px;
     background-color: #E3E3E3;
     border: 2px solid #000;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 35px;
-    color: #000000;
     text-decoration: none;
     padding: 5px 13px 9px;
     box-sizing: border-box;
     cursor: pointer;
     transition: background-color 0.2s
+}
+
+.page__submenu-name {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    color: #000000;
+    margin: 0;
+}
+
+.page__submenu-author {
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 35px;
+    color: #000000;
+    opacity: 0.6;
+    margin: 0;
 }
 
 .page__submenu-link:hover {

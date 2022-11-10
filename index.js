@@ -30,7 +30,11 @@ async function createNewSubmenu() {
     if (searchValue) {
       const result = await getSearchResponse(searchValue);
       const response = await result.json();
-      renderSubmenu(response);
+      if (response.total_count === 0) {
+        alert("Репозиторий не найден");
+      } else {
+        renderSubmenu(response);
+      }
     } else renderSubmenu();
   } catch (e) {
     console.log(e);
@@ -117,8 +121,15 @@ function renderSubmenuItem(item) {
   menuItem.classList.add("page__submenu-item");
   const menuLink = document.createElement("a");
   menuLink.classList.add("page__submenu-link");
-  menuLink.textContent = item.name;
+  const menuLinkName = document.createElement("h2");
+  menuLinkName.classList.add("page__submenu-name");
+  const menuLinkAuthor = document.createElement("p");
+  menuLinkAuthor.classList.add("page__submenu-author");
+  menuLinkName.textContent = item.name;
+  menuLinkAuthor.textContent = item.owner.login;
   menuLink.id = item.id;
+  menuLink.appendChild(menuLinkName);
+  menuLink.appendChild(menuLinkAuthor);
   menuItem.appendChild(menuLink);
   return menuItem;
 }
@@ -128,3 +139,5 @@ const debouncedRender = debounce(createNewSubmenu, 300);
 searchInput.addEventListener("input", debouncedRender);
 searchContainer.addEventListener("click", handleSubmenuClick);
 resultContainer.addEventListener("click", handleCardRemoving);
+
+// TODO: 1. добавить оповещение если репозиторий не найден. 2. добавить подпись автора, чтобы не было 10 репов с одним именем
